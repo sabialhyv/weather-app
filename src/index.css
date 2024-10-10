@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  background: #e2d4ff;
+}
+
+.weather-container {
+  padding: 40px;
+  place-self: center;
+  background-color:gold;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.search-bar input {
+  height: 50px;
+  padding: 15px;
+  margin-right: 10px;
+  border-radius: 40px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+}
+
+.weather-icon{
+  width: 150px;
+  height: 150px;
+  margin: 30px 0;
+}
+
+.temperature{
+  font-size: 45px;
+}
+
+.location{
+  font-size: 30px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.weather-info{
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-info .col{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 22px;
+}
+
+.weather-info .col span{ 
+  display: block;
+  font-size: 16px;
+}
+
+.weather-info .col img{
+  width: 26px;
+  margin-top: 10px;
+}
