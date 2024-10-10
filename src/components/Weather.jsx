@@ -6,7 +6,6 @@ import cloud from '../assets/images/cloud.png'
 import rain from '../assets/images/rain.png'
 import snow from '../assets/images/snow.png'
 import drizzle from '../assets/images/drizzle.png'
-
 import wind from '../assets/images/wind.png'
 import humidity from '../assets/images/humidity.png'
 
@@ -38,6 +37,7 @@ const Weather = () => {
             alert("Please enter the city name")
             return;
         }
+        
         try {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`
 
