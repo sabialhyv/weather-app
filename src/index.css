@@ -20,7 +20,7 @@
 } 
 
 .weather-container {
-  padding: 40px;
+  padding: 45px;
   place-self: center;
   background-color:gold;
   border-radius: 10px;
@@ -47,19 +47,23 @@
 }
 
 .weather-icon{
-  width: 150px;
-  height: 150px;
-  margin: 30px 0;
+  width: 180px;
+  height: 180px;
+  margin: 20px 0;
+  object-fit: cover;
+  object-position: center;
 }
 
 .temperature{
-  font-size: 45px;
+  font-size: 55px;
+  font-weight: bold;
+  letter-spacing: 4px;
 }
 
 .location{
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bolder;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .weather-info{
@@ -72,16 +76,19 @@
 .weather-info .col{
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   font-size: 22px;
 }
 
 .weather-info .col span{ 
   display: block;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .weather-info .col img{
-  width: 26px;
+  width: 35px;
+  object-fit: cover;
+  object-position: center;
   margin-top: 10px;
 }
