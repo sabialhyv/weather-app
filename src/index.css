@@ -10,8 +10,14 @@
 .container {
   min-height: 100vh;
   display: grid;
-  background: #e2d4ff;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./assets/images/background/morning-sky.webp");
 }
+
+.nighter-container {
+  background-image: url("./assets/images/background/night-sky.webp");
+} 
 
 .weather-container {
   padding: 40px;

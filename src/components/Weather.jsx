@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-// import './Weather.css'
 import { IoMdSearch } from "react-icons/io";
 import clear from '../assets/images/clear.png'
 import cloud from '../assets/images/cloud.png'
@@ -37,7 +36,7 @@ const Weather = () => {
             alert("Please enter the city name")
             return;
         }
-        
+
         try {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`
 
