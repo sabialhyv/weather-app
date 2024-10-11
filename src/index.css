@@ -11,7 +11,7 @@
   min-height: 100vh;
   display: grid;
   background-position: center;
-  background-size: cover;
+  background-size: cover; 
   background-image: url("./assets/images/background/morning-sky.webp");
 }
 
