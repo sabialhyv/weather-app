@@ -1,8 +1,4 @@
 import Weather from './components/Weather'
-import cloud from './assets/images/3d icons/cloud-icon.png'
-import sun from './assets/images/3d icons/sun-icon.png'
-import rain from './assets/images/3d icons/rain-icon.webp'
-
 
 function App() {
 

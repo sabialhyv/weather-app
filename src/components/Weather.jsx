@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdSearch } from "react-icons/io";
 import clear from '../assets/images/clear.png'
-import cloud from '../assets/images/cloud.png'
-import rain from '../assets/images/rain.png'
-import snow from '../assets/images/snow.png'
-import drizzle from '../assets/images/drizzle.png'
-import wind from '../assets/images/wind.png'
-import humidity from '../assets/images/humidity.png'
+import cloud from '../assets/images/cloud.webp'
+import rain from '../assets/images/rain.webp'
+import snow from '../assets/images/snow.webp'
+import drizzle from '../assets/images/drizzle.webp'
+import wind from '../assets/images/wind.webp'
+import humidity from '../assets/images/humidity.webp'
 
 const Weather = () => {
 
