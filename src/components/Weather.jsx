@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { IoMdSearch } from "react-icons/io";
-import clear from '../assets/images/clear.png'
-import cloud from '../assets/images/cloud.webp'
-import rain from '../assets/images/rain.webp'
-import snow from '../assets/images/snow.webp'
-import drizzle from '../assets/images/drizzle.webp'
-import wind from '../assets/images/wind.webp'
-import humidity from '../assets/images/humidity.webp'
+import clear from '../assets/images/clear.png';
+import cloud from '../assets/images/cloud.webp';
+import rain from '../assets/images/rain.webp';
+import snow from '../assets/images/snow.webp';
+import drizzle from '../assets/images/drizzle.webp';
+import wind from '../assets/images/wind.webp';
+import humidity from '../assets/images/humidity.webp';
 
-const Weather = () => {
-
-    const [data, setData] = useState(false)
+const Weather = ({ setBackgroundImage, setContainerBgColor }) => {
+    const [data, setData] = useState(null)
     const inputRef = useRef()
 
     const allIcons = {
@@ -28,11 +27,11 @@ const Weather = () => {
         "10n": rain,
         "13d": snow,
         "13n": snow,
-    }
+    };
 
 
     const search = async (city) => {
-        if (city === "") {
+        if (!city) {
             alert("Please enter the city name")
             return;
         }
@@ -53,48 +52,74 @@ const Weather = () => {
                 windSpeed: data.wind.speed,
                 temperature: Math.floor(data.main.temp),
                 location: data.name,
-                icon: icon
-            })
+                icon: icon,
+                timezone: data.timezone,
+            });
+
+            const localTime = new Date(Date.now() + data.timezone * 1000);
+            const hour = localTime.getUTCHours();
+            setBackgroundImage(hour >= 6 && hour < 18
+                ? 'url(src/assets/images/background/morning-sky.webp)'
+                : 'url(src/assets/images/background/night-sky.webp)');
+
+            setContainerBgColor(hour >= 6 && hour < 18 ? 'gold' : '#6f7dbb');
+
+            inputRef.current.value = '';
         } catch (error) {
-            setData(false);
-            console.log("Error in fetching weather data")
+            console.error("Error fetching weather data:", error);
+            alert("Error in fetching weather data.");
+            setData(null);
         }
-    }
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            search(inputRef.current.value);
+        }
+    };
 
     useEffect(() => {
         search('');
-    }, [])
+    }, []);
 
     return (
-        <div className='weather-container'>
+        <>
             <div className="search-bar">
-                <input ref={inputRef} type="text" placeholder='enter the city name' />
+                <input
+                    ref={inputRef}
+                    type="text"
+                    placeholder='enter the city name'
+                    onKeyPress={handleKeyPress}
+                />
                 <IoMdSearch style={{ fontSize: "30px", cursor: "pointer" }} onClick={() => search(inputRef.current.value)} />
             </div>
-            {data ? <>
-                <img src={data.icon} className='weather-icon' alt="" />
-                <p className='temperature'>{data.temperature}°c</p>
-                <p className='location'>{data.location}</p>
-                <div className="weather-info">
-                    <div className="col">
-                        <img src={humidity} alt="" />
-                        <div>
-                            <p>{data.humidity} %</p>
-                            <span>Humidity</span>
+            {data ? (
+                <>
+                    <img src={data.icon} className='weather-icon' alt="Weather Icon" />
+                    <p className='temperature'>{data.temperature}°C</p>
+                    <p className='location'>{data.location}</p>
+                    <div className="weather-info">
+                        <div className="col">
+                            <img src={humidity} alt="Humidity Icon" />
+                            <div>
+                                <p>{data.humidity} %</p>
+                                <span>Humidity</span>
+                            </div>
+                        </div>
+                        <div className="col">
+                            <img src={wind} alt="Wind Speed Icon" />
+                            <div>
+                                <p>{data.windSpeed} km/h</p>
+                                <span>Wind speed</span>
+                            </div>
                         </div>
                     </div>
-                    <div className="col">
-                        <img src={wind} alt="" />
-                        <div>
-                            <p>{data.windSpeed} km/h</p>
-                            <span>Wind speed</span>
-                        </div>
-                    </div>
-                </div>
-            </>
-                : <></>}
-        </div>
-    )
-}
+                </>
+            ) : (
+                <p>No data available. Please search for a city</p>
+            )}
+        </>
+    );
+};
 
 export default Weather;

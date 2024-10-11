@@ -11,25 +11,19 @@
   min-height: 100vh;
   display: grid;
   background-position: center;
-  background-size: cover; 
-  background-image: url("./assets/images/background/morning-sky.webp");
+  background-size: cover;
 }
-
-.nighter-container {
-  background-image: url("./assets/images/background/night-sky.webp");
-} 
 
 .weather-container {
   padding: 45px;
   place-self: center;
-  background-color:gold;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.search-bar{
+.search-bar {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -46,7 +40,7 @@
   outline: none;
 }
 
-.weather-icon{
+.weather-icon {
   width: 180px;
   height: 180px;
   margin: 20px 0;
@@ -54,39 +48,39 @@
   object-position: center;
 }
 
-.temperature{
+.temperature {
   font-size: 55px;
   font-weight: bold;
   letter-spacing: 4px;
 }
 
-.location{
+.location {
   font-size: 35px;
   font-weight: bolder;
   letter-spacing: 4px;
 }
 
-.weather-info{
+.weather-info {
   width: 100%;
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
 }
 
-.weather-info .col{
+.weather-info .col {
   display: flex;
   align-items: flex-start;
   gap: 10px;
   font-size: 22px;
 }
 
-.weather-info .col span{ 
+.weather-info .col span {
   display: block;
   font-size: 16px;
   font-weight: bold;
 }
 
-.weather-info .col img{
+.weather-info .col img {
   width: 35px;
   object-fit: cover;
   object-position: center;
